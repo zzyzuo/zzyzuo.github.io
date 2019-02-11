@@ -10,8 +10,30 @@ h1
 	text-align:center;
 }
 </style>
-<script>
+
+<script type="text/javascript"">
+function showstar(event)
+{
+	//创建图片元素
+	var img_obj = document.createElement("img");
+	//设置图片的样式
+	img_obj.src = "aixin.gif";
+	//定位
+	img_obj.style.position = "absolute";
+	img_obj.style.width = sumr(120,30) + "px";
+	img_obj.style.top = event.clientY + "px";
+	img_obj.style.left = event.clientX + "px";1
+	document.body.appendChild(img_obj);
+
+}
+function sumr(max,min){
+	var res=Math.random()*(max-min)+min;
+	var resu=Math.round(res);
+	return resu;
+}
 alert('ZZY LOVE SHW');
 </script>
+<body>						 
 <h1>宝贝我爱你呀！</h1>
+</body>
 </html>
