@@ -26,25 +26,9 @@ table{
 </style>
 <script type="text/javascript" src="jquery-1.12.4.js">  </script>
   <script type="text/javascript"">
-function showstar(event)
-{
-	//创建图片元素
-	var img_obj = document.createElement("img");
-	//设置图片的样式
-	img_obj.src = "timg.gif";
-	//定位
-	img_obj.style.position = "absolute";
-	img_obj.style.width = sumr(120,30) + "px";
-	img_obj.style.top = event.clientY + "px";
-	img_obj.style.left = event.clientX + "px";1
-	document.body.appendChild(img_obj);
 
-}
-function sumr(max,min){
-	var res=Math.random()*(max-min)+min;
-	var resu=Math.round(res);
-	return resu;
-}
+var a_idx=0;jQuery(document).ready(function($){$("body").click(function(e){var a=new Array("富强","民主","文明","和谐","自由","平等","公正","法治","爱国","敬业","诚信","友善");var $i=$("<span/>").text(a[a_idx]);a_idx=(a_idx+1)%a.length;var x=e.pageX,y=e.pageY;$i.css({"z-index":999999999999999999999999999999999999999999999999999999999999999999999,"top":y-20,"left":x,"position":"absolute","font-weight":"bold","color":"#ff6651"});$("body").append($i);$i.animate({"top":y-180,"opacity":0},1500,function(){$i.remove();});});});
+
 alert('我爱司海雯');	
   </script>
 
