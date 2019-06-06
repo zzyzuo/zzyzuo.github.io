@@ -6,6 +6,25 @@
   <meta name="Keywords" content="">
   <meta name="Description" content="">
   <title>ZZY LOVE SHW</title>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+
+ </head>
+ <body>
+<h1 align="center">课程表</h1>
+<table width="100%" border="1" cellspacing="0" cellpadding="4" class="tabtop13" align="center">
+<tr class="t2"><th>时间</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th></tr>
+<tr><td class="t1">8:10-8:30</td><td>早读</td><td>早读</td><td>早读</td><td>早读</td><td>早读</td></tr>
+<tr><td class="t1">8:45-9:30</td><td>拼音4</td><td></td><td></td><td>阅读1</td><td>拼音4</td></tr>
+<tr><td class="t1">9:45-10:30</td><td></td><td></td><td></td><td></td><td>语文1</td></tr>
+<tr><td class="t1">10:45-11:25</td><td>拼音2</td><td>阅读1</td><td>拼音4</td><td>拼音4</td><td>语文1</td></tr>
+<tr><td class="t1">午休</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="t1">14:30-15:15</td><td>语文1</td><td></td><td>美术1</td><td></td><td>手工3</td></tr>
+<tr><td class="t1">15:30-16:45</td><td>音乐1</td><td>语文1</td><td>美术1</td><td>语文1</td><td>手工1</td></tr>
+<tr><td class="t1">放学后</td><td>补拼音</td><td></td><td>课外手工</td><td>补拼音</td><td>课外手工</td></tr>
+</table>
+ </body>
+</html>
+
 <style>
 td{
 	text-align:center;
@@ -24,27 +43,9 @@ table{
 	width: 100%;
 }
 </style>
-<script type="text/javascript" src="jquery-1.12.4.js">  </script>
-  <script type="text/javascript"">
 
+<script type="text/javascript"">
 var a_idx=0;jQuery(document).ready(function($){$("body").click(function(e){var a=new Array("富强","民主","文明","和谐","自由","平等","公正","法治","爱国","敬业","诚信","友善");var $i=$("<span/>").text(a[a_idx]);a_idx=(a_idx+1)%a.length;var x=e.pageX,y=e.pageY;$i.css({"z-index":999999999999999999999999999999999999999999999999999999999999999999999,"top":y-20,"left":x,"position":"absolute","font-weight":"bold","color":"#ff6651"});$("body").append($i);$i.animate({"top":y-180,"opacity":0},1500,function(){$i.remove();});});});
 
 alert('我爱司海雯');	
-  </script>
-
- </head>
- <body>
-<h1 align="center">课程表</h1>
-<table width="100%" border="1" cellspacing="0" cellpadding="4" class="tabtop13" align="center">
-<tr class="t2"><th>时间</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th></tr>
-<tr><td class="t1">8:10-8:30</td><td>早读</td><td>早读</td><td>早读</td><td>早读</td><td>早读</td></tr>
-<tr><td class="t1">8:45-9:30</td><td>拼音4</td><td></td><td></td><td>阅读1</td><td>拼音4</td></tr>
-<tr><td class="t1">9:45-10:30</td><td></td><td></td><td></td><td></td><td>语文1</td></tr>
-<tr><td class="t1">10:45-11:25</td><td>拼音2</td><td>阅读1</td><td>拼音4</td><td>拼音4</td><td>语文1</td></tr>
-<tr><td class="t1">午休</td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td class="t1">14:30-15:15</td><td>语文1</td><td></td><td>美术1</td><td></td><td>手工3</td></tr>
-<tr><td class="t1">15:30-16:45</td><td>音乐1</td><td>语文1</td><td>美术1</td><td>语文1</td><td>手工1</td></tr>
-<tr><td class="t1">放学后</td><td>补拼音</td><td></td><td>课外手工</td><td>补拼音</td><td>课外手工</td></tr>
-</table>
- </body>
-</html>
+</script>
