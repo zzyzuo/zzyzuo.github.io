@@ -1,49 +1,68 @@
 <!doctype html>
-<html lang="en" onclick="showstar(event)">
- <head>
-  <meta charset="UTF-8">
-  <meta name="Author" content="">
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
-  <title>ZZY LOVE SHW</title>
-<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>ZZY LOVE SHW</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 
- </head>
- <body>
+</head>
+<body>
 <h1 align="center">课程表</h1>
 <table width="100%" border="1" cellspacing="0" cellpadding="4" class="tabtop13" align="center">
-<tr class="t2"><th>时间</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th></tr>
-<tr><td class="t1">8:10-8:30</td><td>早读</td><td>早读</td><td>早读</td><td>早读</td><td>早读</td></tr>
-<tr><td class="t1">8:45-9:30</td><td>拼音4</td><td></td><td></td><td>阅读1</td><td>拼音4</td></tr>
-<tr><td class="t1">9:45-10:30</td><td></td><td></td><td></td><td></td><td>语文1</td></tr>
-<tr><td class="t1">10:45-11:25</td><td>拼音2</td><td>阅读1</td><td>拼音4</td><td>拼音4</td><td>语文1</td></tr>
-<tr><td class="t1">午休</td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td class="t1">14:30-15:15</td><td>语文1</td><td></td><td>美术1</td><td></td><td>手工3</td></tr>
-<tr><td class="t1">15:30-16:45</td><td>音乐1</td><td>语文1</td><td>美术1</td><td>语文1</td><td>手工1</td></tr>
-<tr><td class="t1">放学后</td><td>补拼音</td><td></td><td>课外手工</td><td>补拼音</td><td>课外手工</td></tr>
+    <tr class="t2"><th style="width: 20%">时间</th><th><span id="today7"></span><span style='color: red'>（今天）</span></th><th id="Tomorrow7"></th></tr>
+    <tr><td class="t1">8:10-8:30</td><td id="today0"></td><td id="Tomorrow0"></td></tr>
+    <tr><td class="t1">8:45-9:30</td><td id="today1"></td><td id="Tomorrow1"></td></tr>
+    <tr><td class="t1">9:45-10:30</td><td id="today2"></td><td id="Tomorrow2"></td></tr>
+    <tr><td class="t1">10:45-11:25</td><td id="today3"></td><td id="Tomorrow3"></td></tr>
+    <tr><td class="t1">午休</td><td></td><td></td></tr>
+    <tr><td class="t1">14:30-15:15</td><td id="today4"></td><td id="Tomorrow4"></td></tr>
+    <tr><td class="t1">15:30-16:45</td><td id="today5"></td><td id="Tomorrow5"></td></tr>
+    <tr><td class="t1">放学后</td><td id="today6"></td><td id="Tomorrow6"></td></tr>
 </table>
- </body>
+</body>
 </html>
 
 <style>
-td{
-	text-align:center;
-}
-th{
-	color: black;
-}
-.t1{
-	color:red;
-}
-.t2{
-	background-color: #dedede;
-}
-table{
-	text-align:center;
-	width: 100%;
-}
+    td{
+        text-align:center;
+    }
+    th{
+        color: black;
+    }
+    .t1{
+        color:red;
+    }
+    .t2{
+        background-color: #dedede;
+    }
+    table{
+        text-align:center;
+        width: 100%;
+    }
 </style>
 
-<script type="text/javascript"">
-var a_idx=0;jQuery(document).ready(function($){$("body").click(function(e){var a=new Array("❤");var $i=$("<span/>").text(a[a_idx]);a_idx=(a_idx+1)%a.length;var x=e.pageX,y=e.pageY;$i.css({"z-index":999999999999999999999999999999999999999999999999999999999999999999999,"top":y-20,"left":x,"position":"absolute","font-weight":"bold","color":"#ff6651"});$("body").append($i);$i.animate({"top":y-180,"opacity":0},1500,function(){$i.remove();});});});
+<script type="text/javascript">
+$(document).ready(function () {
+    var mydate=new Date();
+    var myddy=mydate.getDay();//获取存储当前日期
+    var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+    var kc = [
+        ["早读","拼音","","阅读","美术","识字",""],
+        ["早读","","","拼音","手工","识字","东区美术"],
+        ["早读","拼音","","活动","写字","识字","西区美术"],
+        ["早读","","","拼音","","国",""],
+        ["早读","","","阅读","","音乐",""],
+        [],[]
+    ];
+    $("#today7").text(weekday[myddy]);
+    $("#Tomorrow7").text(weekday[myddy + 1]);
+    for (let i=0; i<7; i++){
+        $("#today"+i).text(kc[myddy - 1][i]);
+        $("#Tomorrow"+i).text(kc[myddy][i]);
+    }
+});
+var a_idx=0;jQuery(document).ready(function($){$("html").click(function(e){var a=new Array("❤");var $i=$("<span/>").text(a[a_idx]);a_idx=(a_idx+1)%a.length;var x=e.pageX,y=e.pageY;$i.css({"z-index":999999999999999999999999999999999999999999999999999999999999999999999,"top":y-20,"left":x,"position":"absolute","font-weight":"bold","color":"#ff6651"});$("body").append($i);$i.animate({"top":y-180,"opacity":0},1500,function(){$i.remove();});});});
 </script>
