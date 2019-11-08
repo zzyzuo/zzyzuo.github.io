@@ -51,6 +51,7 @@
         font-size:12px;
     }
     .today{
+        width: 30%;
         font-size:22px;
     }
     .Tomorrow{
@@ -80,7 +81,12 @@ function kcb(myddy,css=1) {
         $("#today"+i).text(kc[myddy - 1][i]);
         $("#today"+i).addClass("today");
         $("#Tomorrow"+i).text(kc[myddy][i]);
-        $("#Tomorrow"+i).addClass("Tomorrow");
+        if (css==1){
+            $("#Tomorrow"+i).removeClass("Tomorrow");
+            $("#Tomorrow"+i).addClass("today");
+        }else {
+            $("#Tomorrow"+i).addClass("Tomorrow");
+        }
     }
     if (css==1){
         $("#is_now").text("");
