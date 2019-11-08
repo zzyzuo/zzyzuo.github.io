@@ -2,17 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="Author" content="">
-    <meta name="Keywords" content="">
-    <meta name="Description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
     <title>ZZY LOVE SHW</title>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-
 </head>
-<body>
+<body style="background: #fffbf0">
 <h1 align="center">课程表</h1>
-<table width="100%" border="1" cellspacing="0" cellpadding="4" class="tabtop13" align="center">
-    <tr class="t2"><th style="width: 20%">时间</th><th><span id="today7"></span><span style='color: red'>（今天）</span></th><th id="Tomorrow7"></th></tr>
+<table width="100%" border="1" cellspacing="0" cellpadding="4" align="center">
+    <tr class="t2"><th style="width: 20%">时间</th><th><span id="today7"></span><span style='color: red' id="is_now">（今天）</span></th><th><span id="is_to">明天</span></th></tr>
     <tr><td class="t1">8:10-8:30</td><td id="today0"></td><td id="Tomorrow0"></td></tr>
     <tr><td class="t1">8:45-9:30</td><td id="today1"></td><td id="Tomorrow1"></td></tr>
     <tr><td class="t1">9:45-10:30</td><td id="today2"></td><td id="Tomorrow2"></td></tr>
@@ -22,10 +19,23 @@
     <tr><td class="t1">15:30-16:45</td><td id="today5"></td><td id="Tomorrow5"></td></tr>
     <tr><td class="t1">放学后</td><td id="today6"></td><td id="Tomorrow6"></td></tr>
 </table>
+<hr>
+<div style="text-align: center">
+<button onclick="kcb(1)">星期一</button>
+<button onclick="kcb(2)">星期二</button>
+<button onclick="kcb(3)">星期三</button>
+<button onclick="kcb(4)">星期四</button>
+<button onclick="kcb(5)">星期五</button>
+</div>
 </body>
 </html>
 
 <style>
+    table{
+        text-align:center;
+        width: 100%;
+        height: 580px;
+    }
     td{
         text-align:center;
     }
@@ -34,35 +44,48 @@
     }
     .t1{
         color:red;
+        font-size:12px;
     }
     .t2{
         background-color: #dedede;
+        font-size:12px;
     }
-    table{
-        text-align:center;
-        width: 100%;
+    .today{
+        font-size:22px;
+    }
+    .Tomorrow{
+        font-size:12px;
     }
 </style>
 
 <script type="text/javascript">
+
 $(document).ready(function () {
     var mydate=new Date();
     var myddy=mydate.getDay();//获取存储当前日期
+    kcb(myddy,2);
+});
+function kcb(myddy,css=1) {
     var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
     var kc = [
         ["早读","拼音","","阅读","美术","识字",""],
         ["早读","","","拼音","手工","识字","东区美术"],
         ["早读","拼音","","活动","写字","识字","西区美术"],
-        ["早读","","","拼音","","国",""],
+        ["早读","","","拼音","","国学",""],
         ["早读","","","阅读","","音乐",""],
-        [],[]
+        ["","","","","","",""],[]
     ];
     $("#today7").text(weekday[myddy]);
-    $("#Tomorrow7").text(weekday[myddy + 1]);
     for (let i=0; i<7; i++){
         $("#today"+i).text(kc[myddy - 1][i]);
+        $("#today"+i).addClass("today");
         $("#Tomorrow"+i).text(kc[myddy][i]);
+        $("#Tomorrow"+i).addClass("Tomorrow");
     }
-});
+    if (css==1){
+        $("#is_now").text("");
+        $("#is_to").text(weekday[myddy + 1]);
+    }
+}
 var a_idx=0;jQuery(document).ready(function($){$("html").click(function(e){var a=new Array("❤");var $i=$("<span/>").text(a[a_idx]);a_idx=(a_idx+1)%a.length;var x=e.pageX,y=e.pageY;$i.css({"z-index":999999999999999999999999999999999999999999999999999999999999999999999,"top":y-20,"left":x,"position":"absolute","font-weight":"bold","color":"#ff6651"});$("body").append($i);$i.animate({"top":y-180,"opacity":0},1500,function(){$i.remove();});});});
 </script>
