@@ -69,11 +69,11 @@ $(document).ready(function () {
 function kcb(myddy,css=1) {
     var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
     var kc = [
-        ["早读","拼音","","阅读","美术","识字",""],
-        ["早读","","","拼音","手工","识字","东区美术"],
-        ["早读","拼音","","活动","写字","识字","西区美术"],
-        ["早读","","","拼音","","国学",""],
-        ["早读","","","阅读","","音乐",""],
+        ["早读","数学","拼音","阅读","美术","识字",""],
+        ["早读","英语","珠算","拼音","音乐","识字","东区美术"],
+        ["早读","数学","拼音","活动","写字","识字","西区美术"],
+        ["早读","英语","数学","拼音","珠算","国学",""],
+        ["早读","外语","数学","阅读","珠算","手工",""],
         ["","","","","","",""],[]
     ];
     $("#today7").text(weekday[myddy]);
@@ -93,5 +93,11 @@ function kcb(myddy,css=1) {
         $("#is_to").text(weekday[myddy + 1]);
     }
 }
-var a_idx=0;jQuery(document).ready(function($){$("html").click(function(e){var a=new Array("❤");var $i=$("<span/>").text(a[a_idx]);a_idx=(a_idx+1)%a.length;var x=e.pageX,y=e.pageY;$i.css({"z-index":999999999999999999999999999999999999999999999999999999999999999999999,"top":y-20,"left":x,"position":"absolute","font-weight":"bold","color":"#ff6651"});$("body").append($i);$i.animate({"top":y-180,"opacity":0},1500,function(){$i.remove();});});});
+var a_idx=0;jQuery(document).ready(function($){$("html").click(function(e){var a=new Array("❤");
+var $i=$("<span/>").text(a[a_idx]);
+a_idx=(a_idx+1)%a.length;
+var x=e.pageX,y=e.pageY;
+$i.css({"z-index":999999999999999999999999999999999999999999999999999999999999999999999,"top":y-20,"left":x,"position":"absolute","font-weight":"bold","color":"#ff6651"});
+$("body").append($i);
+$i.animate({"top":y-180,"opacity":0},1500,function(){$i.remove();});});});
 </script>
