@@ -60,7 +60,6 @@
 </style>
 
 <script type="text/javascript">
-
 $(document).ready(function () {
     var mydate=new Date();
     var myddy=mydate.getDay();//获取存储当前日期
@@ -69,18 +68,18 @@ $(document).ready(function () {
 function kcb(myddy,css=1) {
     var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
     var kc = [
-        ["早读","数学","拼音","阅读","美术","识字",""],
-        ["早读","英语","珠算","拼音","音乐","识字","东区美术"],
-        ["早读","数学","拼音","活动","写字","识字","西区美术"],
-        ["早读","英语","数学","拼音","珠算","国学",""],
-        ["早读","外语","数学","阅读","珠算","手工",""],
-        ["","","","","","",""],[]
+        ["早读","<a style='color: #c2ccd0'>数学</a>","拼音","阅读","美术","识字",""],
+        ["早读","<a style='color: #c2ccd0'>英语</a>","<a style='color: #c2ccd0'>珠算</a>","拼音","音乐","识字","<a style='color: #ff2d51'>东区美术</a>"],
+        ["早读","<a style='color: #c2ccd0'>数学</a>","拼音","活动","写字","识字","<a style='color: #ff2d51'>西区美术</a>"],
+        ["早读","<a style='color: #c2ccd0'>英语</a>","<a style='color: #c2ccd0'>数学</a>","拼音","<a style='color: #c2ccd0'>珠算</a>","国学",""],
+        ["早读","<a style='color: #c2ccd0'>外语</a>","<a style='color: #c2ccd0'>数学</a>","阅读","<a style='color: #c2ccd0'>珠算</a>","手工",""],
+        ["","","","","","",""],["","","","","","",""],
     ];
     $("#today7").text(weekday[myddy]);
     for (let i=0; i<7; i++){
-        $("#today"+i).text(kc[myddy - 1][i]);
+        $("#today"+i).html(kc[myddy - 1][i]);
         $("#today"+i).addClass("today");
-        $("#Tomorrow"+i).text(kc[myddy][i]);
+        $("#Tomorrow"+i).html(kc[myddy][i]);
         if (css==1){
             $("#Tomorrow"+i).removeClass("Tomorrow");
             $("#Tomorrow"+i).addClass("today");
