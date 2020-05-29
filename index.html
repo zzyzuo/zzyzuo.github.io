@@ -21,11 +21,11 @@
 </table>
 <hr>
 <div style="text-align: center">
-<button onclick="kcb(1)">星期一</button>
-<button onclick="kcb(2)">星期二</button>
-<button onclick="kcb(3)">星期三</button>
-<button onclick="kcb(4)">星期四</button>
-<button onclick="kcb(5)">星期五</button>
+    <button onclick="kcb(1)">星期一</button>
+    <button onclick="kcb(2)">星期二</button>
+    <button onclick="kcb(3)">星期三</button>
+    <button onclick="kcb(4)">星期四</button>
+    <button onclick="kcb(5)">星期五</button>
 </div>
 </body>
 </html>
@@ -60,43 +60,44 @@
 </style>
 
 <script type="text/javascript">
-$(document).ready(function () {
-    var mydate=new Date();
-    var myddy=mydate.getDay();//获取存储当前日期
-    kcb(myddy,2);
-});
-function kcb(myddy,css=1) {
-    var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
-    var kc = [
-        ["早读","<a style='color: #c2ccd0'>数学</a>","拼音","阅读","美术","识字",""],
-        ["早读","<a style='color: #c2ccd0'>英语</a>","<a style='color: #c2ccd0'>珠算</a>","拼音","音乐","识字","<a style='color: #ff2d51'>东区美术</a>"],
-        ["早读","<a style='color: #c2ccd0'>数学</a>","拼音","活动","写字","识字","<a style='color: #ff2d51'>西区美术</a>"],
-        ["早读","<a style='color: #c2ccd0'>英语</a>","<a style='color: #c2ccd0'>数学</a>","拼音","<a style='color: #c2ccd0'>珠算</a>","国学",""],
-        ["早读","<a style='color: #c2ccd0'>外语</a>","<a style='color: #c2ccd0'>数学</a>","阅读","<a style='color: #c2ccd0'>珠算</a>","手工",""],
-        ["","","","","","",""],["","","","","","",""],
-    ];
-    $("#today7").text(weekday[myddy]);
-    for (let i=0; i<7; i++){
-        $("#today"+i).html(kc[myddy - 1][i]);
-        $("#today"+i).addClass("today");
-        $("#Tomorrow"+i).html(kc[myddy][i]);
+    $(document).ready(function () {
+        var mydate=new Date();
+        var myddy=mydate.getDay();//获取存储当前日期
+        kcb(myddy,2);
+    });
+    function kcb(myddy,css=1) {
+        var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+        var kc = [
+            ["","阅读","认字","认字","","","语文"],
+            ["","","阅读","语文","","","活动"],
+            ["","","认字","认字","","","阅读"],
+            ["","","阅读","语文","国学","美术","音乐"],
+            ["","","阅读","语文","国学","认字","认字"],
+            ["","","阅读","语文","国学","认字","认字"],
+            ["","","","","","",""],
+        ];
+        $("#today7").text(weekday[myddy]);
+        for (let i=0; i<7; i++){
+            $("#today"+i).html(kc[myddy - 1][i]);
+            $("#today"+i).addClass("today");
+            $("#Tomorrow"+i).html(kc[myddy][i]);
+            if (css==1){
+                $("#Tomorrow"+i).removeClass("Tomorrow");
+                $("#Tomorrow"+i).addClass("today");
+            }else {
+                $("#Tomorrow"+i).addClass("Tomorrow");
+            }
+        }
         if (css==1){
-            $("#Tomorrow"+i).removeClass("Tomorrow");
-            $("#Tomorrow"+i).addClass("today");
-        }else {
-            $("#Tomorrow"+i).addClass("Tomorrow");
+            $("#is_now").text("");
+            $("#is_to").text(weekday[myddy + 1]);
         }
     }
-    if (css==1){
-        $("#is_now").text("");
-        $("#is_to").text(weekday[myddy + 1]);
-    }
-}
-var a_idx=0;jQuery(document).ready(function($){$("html").click(function(e){var a=new Array("❤");
-var $i=$("<span/>").text(a[a_idx]);
-a_idx=(a_idx+1)%a.length;
-var x=e.pageX,y=e.pageY;
-$i.css({"z-index":999999999999999999999999999999999999999999999999999999999999999999999,"top":y-20,"left":x,"position":"absolute","font-weight":"bold","color":"#ff6651"});
-$("body").append($i);
-$i.animate({"top":y-180,"opacity":0},1500,function(){$i.remove();});});});
+    var a_idx=0;jQuery(document).ready(function($){$("html").click(function(e){var a=new Array("❤");
+        var $i=$("<span/>").text(a[a_idx]);
+        a_idx=(a_idx+1)%a.length;
+        var x=e.pageX,y=e.pageY;
+        $i.css({"z-index":999999999999999999999999999999999999999999999999999999999999999999999,"top":y-20,"left":x,"position":"absolute","font-weight":"bold","color":"#ff6651"});
+        $("body").append($i);
+        $i.animate({"top":y-180,"opacity":0},1500,function(){$i.remove();});});});
 </script>
